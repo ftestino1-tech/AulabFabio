@@ -11,7 +11,7 @@
             "args": [],
             "cwd": "${workspaceFolder}/Blog.Web",
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Developmnet",
+                "ASPNETCORE_ENVIRONMENT": "Development",
                 "ASPNETCORE_URLS": "https://localhost:5019"
             },
             "serverReadyAction": {

@@ -26,6 +26,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
+                        @* Nuovo *@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="AdminTags" 
+                            asp-action="Add">Add Tag</a>  
+                        </li>
+                        @* *@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="AdminTags" asp-action="List">
+                                Show All Tags
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
