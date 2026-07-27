@@ -185,3 +185,4 @@ F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\refin
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\Blog.Web.pdb
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\Blog.Web.genruntimeconfig.cache
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\ref\Blog.Web.dll
+F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\compressed\vszzwuasyi-{0}-hnexuxz8cb-hnexuxz8cb.gz

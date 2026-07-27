@@ -27,12 +27,12 @@
 
             <div class="mb-3">
                 <div class="d-flex flex-wrap gap-2">
-        @*             @foreach (var Tag tag in Model.Tags)
+                     @foreach (var Tagtag in Model.Tags)
                     {
                         <span class="badge bg-secondary">
-                            @Tag.Name
+                            @Tagtag.Name
                         </span>
-                    } *@
+                    }
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                     asp-controller="AdminBlogPosts"
                     asp-action="List">
                         Back to List        
-                </a>"
+                </a>
             </div>
         </div>
     </div>
