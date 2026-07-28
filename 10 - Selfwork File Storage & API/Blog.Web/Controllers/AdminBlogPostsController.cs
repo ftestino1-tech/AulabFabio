@@ -127,6 +127,7 @@ namespace Blog.Web.Controllers
             return View(model); 
         }
 
+        [HttpPost]
         public IActionResult Edit(EditBlogPostRequest editBlogPostRequest)
         {
 

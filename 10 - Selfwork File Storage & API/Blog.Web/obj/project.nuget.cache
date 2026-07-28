@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vvkKTPVDIXc=",
+  "dgSpecHash": "LCg2jhQB9tk=",
   "success": true,
-  "projectFilePath": "F:\\04 - Fabio\\F42 - Aulab\\Esercitazioni\\BLOGMVC\\Blog.Web\\Blog.Web.csproj",
+  "projectFilePath": "F:\\04 - Fabio\\F42 - Aulab\\Esercitazioni\\AulabFabio\\10 - Selfwork File Storage & API\\Blog.Web\\Blog.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fabio Testino\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Fabio Testino\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
