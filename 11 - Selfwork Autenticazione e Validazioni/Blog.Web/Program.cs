@@ -11,14 +11,13 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BlogDbContext>(
     options =>options.UseMySql(builder.Configuration.GetConnectionString("BloggieDbConnectionString"), 
-    //new MySqlServerVersion(new Version(8, 0, 0)))
-    ServerVersion.AutoDetect( builder.Configuration.GetConnectionString("BloggieDbConnectionString")))
+        ServerVersion.AutoDetect( builder.Configuration.GetConnectionString("BloggieDbConnectionString")))
 );
 
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseMySql(
-        builder.Configuration.GetConnectionString("AuthDbConnectionString"),
-        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("AuthDbConnectionString"))
+        builder.Configuration.GetConnectionString("BloggieDbConnectionString"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("BloggieDbConnectionString"))
     ));
 
 builder.Services.AddScoped<ITagRepository, TagRepository>();

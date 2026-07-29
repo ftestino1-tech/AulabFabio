@@ -8,6 +8,7 @@ F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\bin\Debug\net10.0\Blog.
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\bin\Debug\net10.0\Blog.Web.dll
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\bin\Debug\net10.0\Blog.Web.pdb
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\bin\Debug\net10.0\Humanizer.dll
+F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\bin\Debug\net10.0\Microsoft.Build.Locator.dll
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
@@ -113,6 +114,7 @@ F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\scope
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\compressed\l77dv8xwhn-{0}-b9sayid5wm-b9sayid5wm.gz
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\compressed\xuwg9yticr-{0}-61n19gt1b8-61n19gt1b8.gz
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\compressed\myd7u9u53z-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\compressed\vszzwuasyi-{0}-hnexuxz8cb-hnexuxz8cb.gz
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\compressed\qnrxlqlkxq-{0}-bqjiyaj88i-bqjiyaj88i.gz
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\compressed\cxc3mwkmvk-{0}-c2jlpeoesf-c2jlpeoesf.gz
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\compressed\9fal5hazrk-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -185,5 +187,3 @@ F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\refin
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\Blog.Web.pdb
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\Blog.Web.genruntimeconfig.cache
 F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\ref\Blog.Web.dll
-F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\obj\Debug\net10.0\compressed\vszzwuasyi-{0}-hnexuxz8cb-hnexuxz8cb.gz
-F:\04 - Fabio\F42 - Aulab\Esercitazioni\BLOGMVC\Blog.Web\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

@@ -49,8 +49,6 @@ namespace Blog.Web.Controllers
         }
 
 
-
-
         [HttpGet]
         public IActionResult Register()
         {
