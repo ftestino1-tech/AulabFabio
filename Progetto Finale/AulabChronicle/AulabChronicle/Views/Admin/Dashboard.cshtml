@@ -1,0 +1,109 @@
+@using AulabChronicle.Models.Domain 
+@using AulabChronicle.Models.ViewModels
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    var request = ViewBag.Request as IEnumerable<CareerRequest>;
+    var categories = ViewBag.Categories as IEnumerable<CategoryDto>;
+}
+
+<div class="container py-5">
+    <h1 class="fw-bold mb-4">Admin Dashboard</h1>
+
+    <div class="card border-0 shadow-sm rounded-4 mb-5">
+        <div class="card-body p-4">
+            <h3 class="fw-bold mb-4">Richieste di collaborazione</h3>
+
+            @if (request != null && request.Any())
+            {
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Utente</th>
+                            <th>Ruolo richiesto</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var requests in request)
+                        {
+                            <tr>
+                                <td>@requests.User?.UserName</td>
+                                <td>@requests.Role?.Name</td>
+                                <td>
+                                    <a asp-asp-controller="Operations"
+                                        asp-action="CareerDetail"
+                                        asp-route-id="@requests.Id"
+                                        class="btn btn-outline-primary btn-sm rounded-pill">
+                                            Dettaglio    
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else 
+            {
+                <p class="text-muted mb-0">Non ci sono richieste da controllare.</p>
+            }
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sn rounded-4">
+        <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold mb-0">Categorie</h3>
+
+                <a asp-controller="Admin"
+                    asp-action="CreateCategory"
+                    class="btn btn-gradient rounded-pill">
+                    +    
+                </a>
+            </div>
+
+            @if (categories != null && categories.Any())
+            {
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Articoli</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var category in categories)
+                        {
+                            <tr>
+                                <td>@category.Name</td>
+                                <td>@category.NumberOfArticles</td>
+                                <td>
+                                    <a asp-controller="Admin"
+                                        asp-action="EditCategory"
+                                        asp-route-id="@category.Id"
+                                        class="btn btn-warning btn-sm rounded-pill">
+                                            Modifica
+                                    </a>
+
+                                    <a asp-controller="Admin"
+                                        asp-action="DeleteCategory"
+                                        asp-route-id="@category.Id"
+                                        class="btn btn-warning btn-sm rounded-pill">
+                                            Cancella
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+

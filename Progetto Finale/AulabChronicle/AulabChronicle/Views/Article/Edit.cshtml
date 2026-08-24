@@ -1,0 +1,99 @@
+@model AulabChronicle.Models.Domain.Article
+@using AulabChronicle.Models.ViewModels
+
+@{
+    ViewData["Title"] = "Modifica Articolo"; 
+    var categories = ViewBag.Categories as IEnumerable<CategoryDto>; 
+}
+
+<div class="row justify-content-center py-5">
+    <div class="col-lg-8">
+        <div class="mb-4">
+            <a asp-asp-controller="Writer" asp-action="Dashboard" class="text-decoration-none text-muted fw-semibold">
+                <i class="fa-solid fa-arrow-left me-2"></i> Torna alla Dashboard
+            </a>
+        </div>
+
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="p-5 bg-light border-botton text-center">
+                <h1 class="display-5 fw-bold mb-0">Modifica Articolo</h1>
+            </div>
+
+            <div class="card-body p-5">
+                <form asp-action="Update" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <label asp-for="Title" class="form-label fw-bold">Titolo</label>
+                            <input asp-for="Title" class="form-control border-2" style="border-radius: 12px; padding: 0.8rem;" />
+                            <span asp-validation-for="Title" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Subtitle" class="form-label fw-label fw-bold">Sottotitolo</label>
+                            <input asp-for="Subtitle" class="form-control border-2" style="border-radius: 12px; padding: 0.8rem;" />
+                            <span asp-validation-for="Subtitle" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="CategoryId" class="form-label fw-bold">Categoria</label>
+                        <select asp-for="CategoryId" class="form-select border-2" style="border-radius: 12px; padding: 0.8rem;">
+                            @foreach (var category in categories!)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Body" class="form-label fw-bold">Corpo dell'articolo</label>
+                        <textarea asp-for="Body" class="form-control border-2" rows="10" style="border-radius: 12px; padding: 1rem;"></textarea>
+                        <span asp-validation-for="Body" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold d-block">Immagine attuale</label>
+
+                        @if (Model.Image != null)
+                        {
+                            <div class="mb-3">
+                                <img src="@Model.Image.Path"
+                                    class="img-thumbail rounded-3 shadow-sm"
+                                    style="max-height: 200px;"
+                                    alt="Current Image" />
+                            </div>
+                        }
+
+                        <label for="file" class="form-label small text.muted">
+                            Carica una nuova immagine per sostituirla
+                        </label>
+
+                        <input type="file" name="file" id="file" class="form-control border-2" style="border-radius: 12px;"
+                    </div>
+
+                    <div class="alert alert-warning border-0 shadow-sm rounded-3 mb-4">
+                        <i class="fa-solid fa circle-info me-2"></i>
+                        <small>
+                            Nota: Se modifichi il contenuto, l'articolo dovrà essere nuovamente approvato dai revisori.
+                        </small>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button tyoe="submit" class="btn btn-gradient py-3 fw-bold">
+                            Salva Modifiche
+                        </button>
+
+                        <a asp-controller="Writer"
+                            asp-action="Dashboard"
+                            class="btn btn-outline-secondary py-3 rounded-3 fw-semibold">
+                                Annulla    
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

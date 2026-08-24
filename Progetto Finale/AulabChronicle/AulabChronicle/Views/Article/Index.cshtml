@@ -1,0 +1,81 @@
+@model IEnumerable<AulabChronicle.Models.ViewModels.ArticleDto>
+
+@{
+    ViewData["Title"] = ViewBag.Title ?? "Tutti gli articoli";
+}
+
+<div class="row justify-content-center py-5">
+    <div class="col-12 text-center mb-5">
+        <h1 class="display-4 fw-bold">@ViewData["Title"]</h1>
+        <div class="mx-auto" style="width: 80px; height: 5px; background: var(--primary-gradient); border-radius: 10px;"></div>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row g-4">
+            @foreach (var article in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 h-100 overflow.hidden article-card transition">
+                        <div class="position-relative">
+                            @if (article.Image != null)
+                            {
+                                <img src="@article.Image.Path" class="card-img-top" style="height: 220px; object-fit: cover;" alt="@article.Title">
+                            }
+                            else
+                            {
+                                <img src="/images/default.jpg" class="card-img-top" style="height: 220px; object-fit: cover;" alt="Default Image">
+                            }
+
+                            <span class="badge position-absolute top-0 end-0 m-3" style="background: rgba(255, 255, 255, 0.9); color: #6366f1; border-radius: 8px;"> 
+                                @(article.Category?.Name ?? "nessuna categoria")
+                            </span>
+                        </div>
+
+                        <div class="card-body P-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold">@article.Title</h5>
+                            <p class="card-text text-muted flex-grow-1">@article.Subtitle</p>
+                            
+                            <div class="mt-auto">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-light rounded-circle me-2 d-flex align-items-center justify-content-center" style="width: 35px; height: 35px; border: 1px solid #e2eBf0;">
+                                    <i class="fa-solid fa-user text-muted small"></i>                                 
+                                </div>
+
+                                <div>
+                                    <a asp-controller="Account"
+                                        asp-action="Search"
+                                        asp-route-id="@article.User?.Id"
+                                        class="text-decoration-none text-dark fw-semibold small">
+                                            @(article.User?.UserName ?? "Utente rimosso")
+                                    </a>
+
+                                    <div class="text-muted" style="font-size: 0.75rem;">
+                                        @article.CreatedAt.ToString("dd MMMM yyyy")
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a asp-controller="Article"
+                                asp-action="Details"
+                                asp-route-id="@article.Id"
+                                class="btn btn-gradient w-100 py-2">
+                                    Leggi Altro
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+       </div>
+    }
+    else
+    {
+        <div class="col-12 text-center PY-5">
+            <i class="fa-solid fa-folder-open fa-4x text-muted mb-3"></i>
+            <h3>Nessun articolo trovato</h3>
+            <p class="text-muted">Torna più tardi per scoprire nuovi contenuti!</p>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary rounded-pill px-4 mt-3">Torna alla Home</a>
+        </div>
+    }
+</div>

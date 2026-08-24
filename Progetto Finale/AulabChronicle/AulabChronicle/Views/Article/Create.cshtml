@@ -1,0 +1,102 @@
+@model AulabChronicle.Models.Domain.Article
+
+@{
+    ViewData["Title"] = "Inserisci un articolo"; 
+    var categories = ViewBag.Categories as IEnumerable<AulabChronicle.Models.ViewModels.CategoryDto>; 
+}
+
+<div class="row justify-content-center py-5">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="p-5" style="background: linear-gradient(135deg, 6366f1 0%, #a855f7 100%);">
+                <h1 class="text-white fw-bolf mb-0">Crea un nuovo articolo</h1>
+                <p class="text-white-50 mb-0">Invia il tuo contributo a Aulab Chronicle</p>
+            </div>
+
+            <div class="card-body p-5">
+                <form asp-controller="Article" asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <label asp-for="Title" class="form-label fw-semibold">Titolo</label>
+                            <input asp-for=Title"
+                                class="form-control form-control-lg border-2"
+                                placeholder="Inserisci un titolo accattivante..."
+                                style="border-radius: 12px;" />
+                            <span asp-validation-for="Title" class="text-danger small"></span>
+                        </div>
+                        
+                        <div class="col-12">
+                            <label for="file" class="form-label fw-semibold">Immagine Copertina</label>
+                            <input type="file"
+                                   id="file"
+                                   name="file"
+                                   class="form-control border-2"
+                                   style="border-radius: 12px;" 
+                                   accept="image/*" />
+                            <span class="text-muted small">Scegli un'immagine per il tuo articolo (opzionale)</span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Subtitle" class="form-label fw-semibolf">Sottotitolo</label>
+                            <input asp-for="Subtitle"
+                                   class="form-control border-2"
+                                   placeholder="Un breve riassunto dell'articolo..."
+                                   style="border-radius: 12px;" />
+                            <span asp-validation-for="Subtitle" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="CategoryId" class="form-label fw-semibold">Categoria</label>
+                            <select asp-for="CategoryId" class="form-select border-2" style="border-radius: 12px;">
+                                <option value="">Seleziona una categoria</option>
+                                @if (categories != null)
+                                {
+                                    foreach (var cat in categories)
+                                    {
+                                        <option value="@cat.Id">@cat.Name</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="PublishDate" class="form-label fw-semibold">Data di pubblicazione</label>
+                            <input asp-for="PublishDate"
+                                   type="date"
+                                   class="form-control border-2"
+                                   style="border-radius: 12px;" />
+                            <span asp-validation-for="PublishDate" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Body" class="form-label fw-semibold">Corpo del testo</label>
+                            <textarea asp-for="Body"
+                                      class="form-control border-2"
+                                      rows="10"
+                                      placeholder="Scrivi qui il contenuto del tuo articolo..."
+                                      style="border-radius: 12px;"></textarea>
+                            <span asp-validation-for="Body" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-12 mt-5">
+                            <button type="submit" class="btn btn-gradient w-100 py-3 rounded-3" style="font-size: 1.1rem;">
+                                <i class="fa-solid fa-paper-plane me-2"></i> Pubblica Articolo
+                            </button>
+
+                            <a asp-controller="Home"
+                               asp-action="Index"
+                               class="btn btn-link text-muted w-100 mt-3 text-decoration-none">
+                                 Cancellazione
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

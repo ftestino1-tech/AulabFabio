@@ -1,0 +1,35 @@
+@model AulabChronicle.Models.Domain.Category
+
+@{
+    ViewData["Title"] = "Modifica categoria";
+}
+
+<div class="row justify-content-center py-5">
+    <div class="col-md-6">
+        <div class="card border-0 shadow rounded-4">
+            <div class="card-body p-5">
+                <h1 class="fw-bold mb-4">Modifica categoria</h1>
+
+                <form asp-controller="Admin" asp-action="EditCategory" method="post">
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="mb-4"> 
+                        <label asp-for="Name" class="form-label fw-semibold">Nome categoria</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-gradient rounded-pill px-4">
+                        Modifica
+                    </button>
+
+                    <a asp-controller="Admin"
+                        asp-action="Dashboard"
+                        class="btn btn-secondary rounded-pill px-4">
+                            Annulla
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

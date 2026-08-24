@@ -1,0 +1,84 @@
+@model AulabChronicle.Models.ViewModels.ArticleDto
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="row justify-content-center py-5">
+    <div class="col-lg-10">
+        <!-- Breadcrumb  / Back -->
+        <div class="mb-4">
+            <a href="javascript:history.back()" class="text-decoration-none text-muted fw-semibold">
+                <i class="fa-solid fa-arrow-left me-2"></i> Torna indietro
+            </a>
+        </div> 
+
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-5">
+            <!-- Header Image -->
+            <div style="height: 450px: overflow: hidden;">
+                @if (Model.Image != null)
+                {
+                    <img src="@Model.Image.Path" class="w-100 h-100" style="object-fit: cover;" alt="@Model.Title">
+                }
+                else
+                {
+                    <img src="/images/default.jpg" class="w-100 h-100" style="object-fit: cover;" alt="Default Image">
+                }
+            </div>
+
+            <div class="card-body p-5">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <span class="badge px-3 py-2 mb-3" style="background: rgba(99, 102, 241, 0.1); color: #6366f1; font-weight: 600;"> 
+                            @if (Model.Category != null)
+                            {
+                                <a asp-controller="Category" asp-action="Search" asp-route-categoryIdentifier="@Model.Category.Id" class="text-decoration-none" style="color: #6366f1;">
+                                    @(Model.Category?.Name ?? "Nessuna categoria")
+                                </a>
+                            }
+                            else
+                            {
+                                <span>Nessuna categoria</span>
+                            }
+                        </span>
+
+                        <h1 class="display-3 fw-bold mb-3">@Model.Title</h1>
+                        <p class="lead fw-normal text-muted mb-5">@Model.Subtitle</p>
+
+                        <div class="article-content" style="font-size: 1.1ren; line-height: 1.8; color: #334155; white-space:pre-wrap;">
+                            @Model.Body
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Info -->
+                    <div class="col-lg-4 mt-5 mt-lg-0">
+                        <div class="p-4 bg-light rounded-4 sticky-top" style="top: 100px; border: 1px solid #e2e8f0;">
+                            <h5 class="fw-bold mb-4">Informazioni Autore</h5>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px: height: 50px;">
+                                    @(Model.User?.UserName?[0] ?? '?')
+                                </div>          
+                                <div>
+                                    <a asp-controller="Account"
+                                        asp-action="Search"
+                                        asp-route-id="@Model.User?.Id"
+                                        class="text-decoration-none text-dark d-block fw-bold">
+                                            @(Model.User?.UserName ?? "Utente rimosso")
+                                    </a>
+                                    <span class="text-muted small">Autore Verificato</span>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <div class="mb-3 d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Data</span>
+                                <span class="fw-semibold">@(Model.PublishDate?.ToString("dd MMMM yyyy") ?? Model.CreatedAt.ToString("dd MMMM yyyy"))</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    

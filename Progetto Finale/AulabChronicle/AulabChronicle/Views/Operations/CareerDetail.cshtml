@@ -1,0 +1,47 @@
+@model AulabChronicle.Models.Domain.CareerRequest
+
+@{
+    ViewData["Title"] = "Dettaglio richiesta";
+}
+
+<div class="container py-5">
+    <div class="card border-0 shadows rounded-4">
+        <div class="card-body p-5">
+            <h1 class="fw-bold mb-4">Dettaglio richiesta</h1>
+
+            <p>
+                <strong>Utente:</strong>
+                @(Model.User?.UserName ?? "Utente rimosso")
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                @(Model.User?.Email ?? "Email non disponibile")
+            </p>
+
+            <p>
+                <strong>Ruolo richiesto:</strong>
+                @(Model.Role?.Name ?? "Ruolo non disponibile")
+            </p>
+
+            <hr />
+
+            <h5 class="fw-bold">Motivazione</h5>
+            <p>@Model.Body</p>
+            
+            <form asp-controller="Operations" asp-action="CareerAccept" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+
+                <button type="submit" class="btn btn-success rounded-pill px-4">
+                    Accetta richiesta
+                </button>
+
+                <a asp-controller="Admin"
+                    asp-action="Dashboard"
+                    class="btn btn-secondary rounded-pill px-4">
+                        Torma alla dashboard
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

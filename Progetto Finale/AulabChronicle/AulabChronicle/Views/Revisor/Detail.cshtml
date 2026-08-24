@@ -1,0 +1,74 @@
+@model AulabChronicle.Models.ViewModels.ArticleDto
+
+@{
+    ViewData["Title"] = Model.Title; 
+}
+
+<div class="container py-5">
+    <div class="card border-0 shadow rounded-4 overflow-hidden">
+        <div style="height: 420px; background:#e2e8f0; overflow:hidden;">
+            @if (Model.Image != null)
+            {
+                <img src="@Model.Image.Path"
+                    class="w-100 h-100"
+                    style="object-fit: cover;"
+                    alt="@Model.Title" />
+            }
+            else 
+            {
+                <img src="/images/default.jpg"
+                    class="w-100 h-100"
+                    style="object-fit: cover;"
+                    alt="Default Image" />
+            }
+        </div>
+
+        <div class="card-body p-5">
+            <span class="badge bg-light text-primary px-3 py-2 mb-3">
+                @(Model.Category?.Name ?? "nessuna categoria")
+            </span>
+
+            <h1 class="display-4 fw-bold">@Model.Title</h1>
+
+            <p class="lead text-muted">@Model.Subtitle</p>
+
+            <p class="text-muted small">
+                Autore: @(Model.User?.UserName ?? "Utente rimosso")
+            </p>
+
+            <hr />
+
+            <div style="white-space: pre-wrap; font-size: 1.1rem; line-height: 1.8;">
+                @Model.Body
+            </div>
+
+            <hr />
+
+            <div class="d-flex gap-3">
+                <form asp-controller="Revisor" asp-action="SetAccepted" method="post">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <input type="hidden" name="accepted" value="true" />
+
+                    <button type="submit" class="btn btn-success rounded-pill px-4">
+                        Accetta articolo
+                    </button>
+                </form>
+
+                <form asp-controller="Revisor" asp-action="SetAccepted" method="post">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <input type="hidden" name="accepted" value="false" />
+
+                    <button type="submit" class="btn btn-danger rounded-pill px-4">
+                        Rifiuta articolo
+                    </button>
+                </form>
+
+                <a asp-controller="Revisor"
+                    asp-action="Dashboard"
+                    class="btn btn-secondary rounded-pill px-4">
+                        Torna alla dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+using AulabChronicle.Models.Domain; 
+
+namespace AulabChronicle.Repositories; 
+
+public interface IArticleRepository
+{
+    Task<IEnumerable<Article>> GetAllASync(); 
+    Task<Article?> GetAsync(long id); 
+    Task<Article?> GetByTitleAsync(string title);
+    Task<IEnumerable<Article>> SearchAsync(string searchTerm); 
+    Task<Article> AddAsync(Article article); 
+    Task<Article?> UpdateAsync(Article article); 
+    Task<Article?> DeleteAsync(long id); 
+    Task<IEnumerable<Article>> GetByCategoryAsync(long categoryId); 
+    Task<IEnumerable<Article>> GetByUserAsync(string userId); 
+}

@@ -1,0 +1,52 @@
+@model AulabChronicle.Models.Domain.CareerRequest
+@using Microsoft.AspNetCore.Identity
+
+@{
+    ViewData["Title"] = "Lavora con noi"; 
+    var roles = ViewBag.Roles as List<IdentityRole>;
+}
+
+<div class="row justify-content-center py-5">
+    <div class="col-md-8 col-lg-6">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="card-header text-dark text-center py-4" style="background: var(--primary-gradient);">
+                <h2 class="fw-bold mb-0">Lavora con noi</h2>
+                <p class="mb-0 opacity-75">Entra a far parte del team di Aulab Chronicle</p>
+            </div>
+
+            <div class="card-body p-5">
+                <form asp-controller="Operations" asp-action="CareerRequestStore" method="post">
+                    <div class="mb-4">
+                        <label asp-for="Body" class="form-label fw-semibold">Motivazione</label>
+                        <textarea asp-for="Body"
+                                class="form-control border-2"
+                                rows="6"
+                                placeholder="Spiegaci perchè vuoi collaborare con noi..."
+                                style="border-radius: 12px;"></textarea>
+                        <span asp-validation-for="Body" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="RoleId" class="form-label fw-semibold">Ruolo richiesto</label>
+                        <select asp-for="RoleId" class="form-select border-2" style="border-radius: 12px;">
+                            <option value="">Seleziona un ruolo</option>
+
+                            @if (roles != null)
+                            {
+                                @foreach (var role in roles)
+                                {
+                                    <option value="@role.Id">@role.Name</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="RoleId" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-gradient w-100 py-3">
+                        Invia canditatura
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
