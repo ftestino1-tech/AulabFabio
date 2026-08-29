@@ -5,7 +5,7 @@ namespace AulabChronicle.Models.Domain;
 
 public class Image
 {
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     [Required]
     public string Path { get; set; } = string.Empty;

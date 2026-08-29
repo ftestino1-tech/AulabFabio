@@ -6,7 +6,7 @@
 
 @if (TempData["SuccessMessage"] != null)
 {
-    <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 mb-4" role="alert" style="border-radius: 12px; background: #ecf...">
+    <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 mb-4" role="alert" style="border-radius: 12px; background: #ecfdf5; color: #065f46;">
         <i class="fa-solid fa-check-circle me-2"></i>
         @TempData["SuccessMessage"]
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -15,8 +15,8 @@
 
 <div class="hero-section py-5 mb-5" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 30px; position: relative;">
     <!-- Abstract Shapes -->
-    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(99, 102, 241, 0.1); border-radius: 50%..."></div>
-    <div style="position: absolute; bottom: 10%; left: 10%; width: 100px; height: 100px; background: rgba(168, 85, 247, 0.1); border-radius: 50%..."></div>
+    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(99, 102, 241, 0.1); border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: 10%; left: 10%; width: 100px; height: 100px; background: rgba(168, 85, 247, 0.1); border-radius: 50%;"></div>
 
     <div class="container position-relative">
         <div class="row align-items-center">
@@ -45,25 +45,56 @@
     <div class="col-12 mb-4 d-flex justify-content-between align-items-end">
         <div>
             <h2 class="fw-bold mb-0">Le ultime notizie</h2>
+            <p class="text-muted small">Resta aggiornato con i post più recenti</p>
         </div>
 
-        @if (Model != null && Model.Any())
+        <a asp-controller="Article" asp-action="Index" class="btn btn-link text-primary fw-bold text-decoration-none">
+            Vedi tutti <i class="fa-solid fa-arrow-right ms-1"></i>
+        </a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var article in Model)
         {
-            @foreach (var article in Model)
-            {
-                <div class="col-md-4 mb-4">
-                    <div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden transition-hover">
-                        <div style="height: 200px; background: #cbd5e1; overflow: hidden;">
-                            @if (article.Image != null)
-                            {
-                                <img src="@article.Image.Path" class="w-100 h-100" style="object-fit: cover;" alt="@article.Title">
-                            }
-                        </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden transition-hover">
+                    <div style="height: 200px; background: #cbd5e1; overflow: hidden;">
+                        @if (article.Image != null)
+                        {
+                            <img src="@article.Image.Path" class="w-100 h-100" style="object-fit: cover;" alt="@article.Title">
+                        }
+                        else
+                        {
+                            <img src="/images/default.jpg" class="w-100 h-100" style="object-fit: cover;" alt="Default Image">
+                        }
+                    </div>
+
+                    <div class="card-body p-4 d-flex flex-column">
+                        <span class="badge bg-light text-primary mb-2 align-self-start">
+                            @(article.Category?.Name ?? "nessuna categoria")
+                        </span>
+
+                        <h5 class="card-title fw-bold">@article.Title</h5>
+                        <p class="text-muted small flex-grow-1">@article.Subtitle</p>
+
+                        <a asp-controller="Article" asp-action="Details" asp-route-id="@article.Id" class="btn btn-outline-primary w-100 rounded-pill mt-3">
+                            Leggi
+                        </a>
                     </div>
                 </div>
-            }
+            </div>
         }
-    </div>
+    }
+    else
+    {
+        <div class="col-12 text-center py-5">
+            <i class="fa-solid fa-folder-open fa-4x text-muted mb-3"></i>
+            <h3>Nessun articolo trovato</h3>
+            <p class="text-muted">Torna più tardi per scoprire nuovi contenuti.</p>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary rounded-pill px-4 mt-3">Torna alla Home</a>
+        </div>
+    }
 </div>
 
 <style>
@@ -72,5 +103,6 @@
     }
     .transition-hover:hover {
         transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
     }
 </style>

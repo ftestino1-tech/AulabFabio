@@ -68,7 +68,7 @@ public class ArticleService : ICrudService<ArticleDto, Article, long>
     
     public async Task<List<ArticleDto>> ReadAllAsync()
     {
-        var articles = await articleRepository.GetAllASync(); 
+        var articles = await articleRepository.GetAllAsync(); 
 
         return articles.Select(a => new ArticleDto
         {

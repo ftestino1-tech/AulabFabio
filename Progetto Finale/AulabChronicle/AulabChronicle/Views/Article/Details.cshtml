@@ -15,7 +15,7 @@
 
         <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-5">
             <!-- Header Image -->
-            <div style="height: 450px: overflow: hidden;">
+            <div style="height; 450px; overflow: hidden;">
                 @if (Model.Image != null)
                 {
                     <img src="@Model.Image.Path" class="w-100 h-100" style="object-fit: cover;" alt="@Model.Title">
@@ -45,7 +45,7 @@
                         <h1 class="display-3 fw-bold mb-3">@Model.Title</h1>
                         <p class="lead fw-normal text-muted mb-5">@Model.Subtitle</p>
 
-                        <div class="article-content" style="font-size: 1.1ren; line-height: 1.8; color: #334155; white-space:pre-wrap;">
+                        <div class="article-content" style="font-size: 1.1rem; line-height: 1.8; color: #334155; white-space:pre-wrap;">
                             @Model.Body
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <div class="p-4 bg-light rounded-4 sticky-top" style="top: 100px; border: 1px solid #e2e8f0;">
                             <h5 class="fw-bold mb-4">Informazioni Autore</h5>
                             <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px: height: 50px;">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
                                     @(Model.User?.UserName?[0] ?? '?')
                                 </div>          
                                 <div>

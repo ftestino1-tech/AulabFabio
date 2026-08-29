@@ -68,8 +68,4 @@ public class CareerRequestRepository : ICareerRequestRepository
             .ToListAsync(); 
     }
 
-    public Task<IEnumerable<CareerRequest>> FindIsCheckedAsync(bool isChecked)
-    {
-        throw new NotImplementedException();
-    }
 }

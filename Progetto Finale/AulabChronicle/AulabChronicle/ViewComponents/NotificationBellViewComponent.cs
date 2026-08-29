@@ -28,7 +28,7 @@ public class NotificationBellViewComponent : ViewComponent
         }
         else if (role == "Revisor")
         {
-            var articles = await articleRepository.GetAllASync(); 
+            var articles = await articleRepository.GetAllAsync(); 
             count = articles.Count(a => a.IsAccepted == null);
         }
 

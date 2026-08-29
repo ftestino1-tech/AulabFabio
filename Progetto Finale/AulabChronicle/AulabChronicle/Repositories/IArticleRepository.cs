@@ -4,7 +4,7 @@ namespace AulabChronicle.Repositories;
 
 public interface IArticleRepository
 {
-    Task<IEnumerable<Article>> GetAllASync(); 
+    Task<IEnumerable<Article>> GetAllAsync(); 
     Task<Article?> GetAsync(long id); 
     Task<Article?> GetByTitleAsync(string title);
     Task<IEnumerable<Article>> SearchAsync(string searchTerm); 

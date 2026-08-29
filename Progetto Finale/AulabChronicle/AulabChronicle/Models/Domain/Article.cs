@@ -18,7 +18,7 @@ public class Article
     public string Subtitle { get; set; } = string.Empty;
     
     [Required]
-    [MaxLength(100)]
+    [MaxLength(1000)]
     public string Body { get; set; } = string.Empty;
 
     public DateTime? PublishDate { get; set; }
@@ -32,7 +32,7 @@ public class Article
     [ValidateNever]
     public IdentityUser? User { get; set; }
 
-    [Required(ErrorMessage = "Ka categoria è obbligatoria")]
+    [Required(ErrorMessage = "La categoria è obbligatoria")]
     [Range(1, long.MaxValue, ErrorMessage = "Seleziona una categoria valida")]
     public long? CategoryId { get; set; }
 

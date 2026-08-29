@@ -22,7 +22,7 @@ public class ArticleRepository : IArticleRepository
         return article; 
     }
 
-    public async Task<IEnumerable<Article>> GetAllASync()
+    public async Task<IEnumerable<Article>> GetAllAsync()
     {
         return await AulabDbContext.Articles
             .Include(a => a.Category)

@@ -22,7 +22,7 @@ public class RevisorController : Controller
     [HttpGet]
     public async Task<IActionResult> Dashboard()
     {
-        var articles = (await articleRepository.GetAllASync())
+        var articles = (await articleRepository.GetAllAsync())
             .Where(a => a.IsAccepted == null)
             .OrderByDescending(a => a.CreatedAt)
             .ToList();
@@ -47,7 +47,7 @@ public class RevisorController : Controller
     [HttpGet]
     public async Task<IActionResult> Detail(long id)
     {
-        var articles = await articleRepository.GetAllASync(); 
+        var articles = await articleRepository.GetAllAsync(); 
         var article = articles.FirstOrDefault(a => a.Id == id); 
 
         if (article == null)
@@ -75,7 +75,7 @@ public class RevisorController : Controller
     [HttpPost]
     public async Task<IActionResult> SetAccepted(long id, bool accepted)
     {
-        var articles = await articleRepository.GetAllASync();
+        var articles = await articleRepository.GetAllAsync();
         var article = articles.FirstOrDefault(a => a.Id == id); 
 
         if (article != null)

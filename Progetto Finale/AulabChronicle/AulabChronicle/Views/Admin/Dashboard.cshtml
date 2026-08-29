@@ -3,14 +3,14 @@
 
 @{
     ViewData["Title"] = "Admin Dashboard";
-    var request = ViewBag.Request as IEnumerable<CareerRequest>;
+    var request = ViewBag.Requests as IEnumerable<CareerRequest>;
     var categories = ViewBag.Categories as IEnumerable<CategoryDto>;
 }
 
 <div class="container py-5">
     <h1 class="fw-bold mb-4">Admin Dashboard</h1>
 
-    <div class="card border-0 shadow-sm rounded-4 mb-5">
+    <div class="card border-0 shadow-sn rounded-4 mb-5">
         <div class="card-body p-4">
             <h3 class="fw-bold mb-4">Richieste di collaborazione</h3>
 
@@ -32,7 +32,7 @@
                                 <td>@requests.User?.UserName</td>
                                 <td>@requests.Role?.Name</td>
                                 <td>
-                                    <a asp-asp-controller="Operations"
+                                    <a asp-controller="Operations"
                                         asp-action="CareerDetail"
                                         asp-route-id="@requests.Id"
                                         class="btn btn-outline-primary btn-sm rounded-pill">

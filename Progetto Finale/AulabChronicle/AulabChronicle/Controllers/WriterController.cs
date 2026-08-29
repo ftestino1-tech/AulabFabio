@@ -28,7 +28,7 @@ public class WriterController : Controller
             return Unauthorized(); 
         }
 
-        var articles = (await articleRepository.GetAllASync())
+        var articles = (await articleRepository.GetAllAsync())
             .Where(a => a.UserId == user.Id)
             .OrderByDescending(a => a.CreatedAt)
             .Select(a => new ArticleDto

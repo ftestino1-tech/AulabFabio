@@ -33,7 +33,7 @@ public class SupabaseImageService : IImageService
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", supabaseKey);
         httpClient.DefaultRequestHeaders.Add("apikey", supabaseKey);
         
-        var response = await httpClient.PutAsync(uploadUrl, content);
+        var response = await httpClient.PostAsync(uploadUrl, content);
 
         if (response.IsSuccessStatusCode)
         {
@@ -58,7 +58,7 @@ public class SupabaseImageService : IImageService
 
     public async Task DeleteAsync(string path)
     {
-        var supabaseKey = configuration["Supabase:Url"];
+        var supabaseKey = configuration["Supabase:Key"];
         var publicUrlPrefix = configuration["Supabase:PublicUrl"];
         var bucketPrefix = configuration["Supabase:Bucket"];
 
